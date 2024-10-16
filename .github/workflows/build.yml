@@ -14,5 +14,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20 
-      - run: yarn install   #Installing dependencies
-      - run: yarn lint --no-eslintrc   #exit code 2: 2: Linting was unsuccessful due to a configuration problem or an internal error.
+            - name: run CI
+      - run: |
+          yarn install
+          yarn lint
+      #- run: yarn install   #Installing dependencies
+      #- run: yarn lint --no-eslintrc   #exit code 2: 2: Linting was unsuccessful due to a configuration problem or an internal error.
