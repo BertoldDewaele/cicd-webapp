@@ -15,4 +15,6 @@ jobs:
         with:
           node-version: 20 
       - run: yarn install   #Installing dependencies
-      - run: yarn lint   #exit code 2: 2: Linting was unsuccessful due to a configuration problem or an internal error.
+      - run: yarn lint 
+          env:
+            ESLINT_USE_FLAT_CONFIG: false  #exit code 2: 2: Linting was unsuccessful due to a configuration problem or an internal error.
