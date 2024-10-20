@@ -35,8 +35,8 @@ jobs:
         uses: cloudposse/github-action-docker-compose-test-run@main
         with:
           file: docker-compose.yml
-          service: test
-          command: docker compose run test yarn test
+          service: app
+          command: yarn test
  
 
 
