@@ -31,12 +31,8 @@ jobs:
            context: .
            push: true
            tags: bertolddewaele/webapp:latest
-      - name: Run testcode
-        uses: cloudposse/github-action-docker-compose-test-run@main
-        with:
-          file: compose.yaml
-          service: server
-          command: yarn test
+      - run: yarn start
+      - run: yarn test    
  
 
 
