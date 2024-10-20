@@ -36,7 +36,7 @@ jobs:
         with:
           file: docker-compose.yml
           service: test
-          command: yarn test
+          command: docker compose run test yarn test
  
 
 
