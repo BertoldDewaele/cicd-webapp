@@ -1,0 +1,35 @@
+services:
+  
+  app:
+    image: bertolddewaele/webapp
+    depends_on:
+      database:
+        condition: service_healthy
+    ports: 
+      - 3001:3000  
+    environment:
+      MYSQL_URL: mysql://root:letmein@database:3306/db
+    healthcheck:
+      test: "exit 0"
+  
+  
+  database:
+    image: mysql:8.0.39
+    volumes:
+      - docker_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: letmein
+      MYSQL_DATABASE: db 
+    healthcheck:
+      test: "exit 0"
+
+  test:
+    image: bertolddewaele/webapp
+    depends_on:
+      app:
+        condition: service_healthy
+    environment: 
+      API_URL: http://app:3000
+
+volumes:
+  docker_data:
