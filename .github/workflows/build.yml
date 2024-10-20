@@ -18,5 +18,15 @@ jobs:
       - run: yarn lint 
         env:
          ESLINT_USE_FLAT_CONFIG: false  #exit code 2: 2: Linting was unsuccessful due to a configuration problem or an internal error.
-      - name: build docker image
-        run: docker build -t webapp .  
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Build
+        uses: docker/build-push-action@v6
+        with:
+           load: true
+           tags: myimage:latest 
+      - name: Inspect
+        run: |
+          docker image inspect myimage:latest 
+
+
