@@ -31,6 +31,9 @@ jobs:
            context: .
            push: true
            tags: bertolddewaele/webapp:latest
-
+      - name: Run docker-compose
+        uses: hoverkraft-tech/compose-action@v2.0.1
+        with:
+             compose-file: "compose.yaml"
 
 
