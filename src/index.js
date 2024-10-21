@@ -1,4 +1,4 @@
-import express from "express";
+import express from 'express';
 import Boom from '@hapi/boom';
 import morgan from 'morgan';
 import persistence from './persistence/index.js';
