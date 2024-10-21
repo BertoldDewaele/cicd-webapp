@@ -12,6 +12,8 @@ function asyncMiddleware(fn) {
   };
 }
 
+//Dit is een test
+
 const app = express();
 
 app.use(morgan('dev'));
